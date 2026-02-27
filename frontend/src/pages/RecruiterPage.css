@@ -1,0 +1,886 @@
+/* ═══════════════════════════════════════
+   JD Creator — Polished UI
+   ═══════════════════════════════════════ */
+
+.recruiter-page {
+    padding: 28px;
+    height: 100%;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* ── Hero Header ── */
+.jd-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, var(--indigo-50) 0%, white 60%, #f0f7ff 100%);
+    border: 1px solid var(--indigo-100);
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.jd-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.jd-hero-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--accent-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.jd-hero-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.jd-hero-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 2px 0 0;
+}
+
+.jd-memory-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid var(--indigo-200);
+    border-radius: 20px;
+    color: var(--indigo-600);
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Error ── */
+.jd-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    color: #991b1b;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.jd-error button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #991b1b;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.jd-error button:hover {
+    background: #fecaca;
+}
+
+/* ── Section Labels ── */
+.jd-dept-input {
+    margin-bottom: 12px;
+}
+
+.jd-dept-input label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    margin-bottom: 5px;
+}
+
+.jd-optional {
+    font-weight: 400;
+    color: var(--slate-400);
+    font-size: 0.72rem;
+}
+
+.jd-dept-field {
+    width: 100%;
+    padding: 9px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.jd-dept-field:focus {
+    border-color: var(--indigo-400);
+    box-shadow: 0 0 0 3px var(--indigo-100);
+}
+
+.jd-dept-field::placeholder {
+    color: var(--slate-400);
+}
+
+.jd-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate-600);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+
+.jd-role-tag {
+    margin-left: auto;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    background: var(--indigo-50);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--indigo-200);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* ── Step Content ── */
+.jd-step {
+    margin-bottom: 20px;
+}
+
+/* ── Step 1: Job Details ── */
+.jd-details-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.jd-details-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--slate-800);
+    margin: 0 0 20px;
+}
+
+.jd-details-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.jd-details-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.jd-form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    margin-bottom: 6px;
+}
+
+.jd-form-group input,
+.jd-form-group select,
+.jd-form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: white;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+}
+
+.jd-form-group input:focus,
+.jd-form-group select:focus,
+.jd-form-group textarea:focus {
+    border-color: var(--indigo-500);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.jd-form-group textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.jd-form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* ── Step 2: Clarifying Questions ── */
+.jd-questions-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.jd-questions-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0 0 20px;
+}
+
+.jd-questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.jd-question-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    background: var(--slate-50);
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+}
+
+.jd-question-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.jd-question-body {
+    flex: 1;
+}
+
+.jd-question-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.jd-question-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.jd-option-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 8px;
+    background: white;
+    font-size: 0.8rem;
+    color: var(--slate-700);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.jd-option-btn:hover {
+    border-color: var(--indigo-400);
+    background: var(--indigo-50);
+}
+
+.jd-option-btn.selected {
+    border-color: var(--accent-primary);
+    background: var(--indigo-50);
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.jd-option-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.jd-option-btn.selected .jd-option-check {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+/* ── Step 3: Refine Card ── */
+.jd-refine-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jd-refine-hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+    font-style: italic;
+}
+
+/* ── Step Actions (two-button variant) ── */
+.jd-step-actions.two-buttons {
+    justify-content: space-between;
+}
+
+/* ── Grid Layouts ── */
+.jd-create-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+@media (min-width: 900px) {
+    .jd-create-grid {
+        grid-template-columns: 5fr 6fr;
+    }
+}
+
+.jd-create-chat-col {
+    min-height: 300px;
+}
+
+.jd-create-preview-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Preview Card ── */
+.jd-preview-card {
+    flex: 1;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.jd-preview-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.jd-preview-card::-webkit-scrollbar-thumb {
+    background: var(--slate-200);
+    border-radius: 3px;
+}
+
+.jd-preview-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--slate-400);
+    height: 100%;
+    min-height: 200px;
+}
+
+.jd-preview-empty svg {
+    margin-bottom: 16px;
+    opacity: 0.25;
+}
+
+.jd-preview-empty p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--slate-500);
+    margin: 0 0 4px;
+}
+
+.jd-preview-empty span {
+    font-size: 0.8rem;
+    color: var(--slate-400);
+}
+
+/* ── Step Actions ── */
+.jd-step-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-default);
+}
+
+/* ── Buttons ── */
+.jd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.jd-btn.primary {
+    background: var(--accent-primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+.jd-btn.primary:hover:not(:disabled) {
+    background: var(--indigo-700);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+    transform: translateY(-1px);
+}
+
+.jd-btn.ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-default);
+}
+
+.jd-btn.ghost:hover {
+    background: var(--slate-50);
+    color: var(--slate-800);
+    border-color: var(--slate-300);
+}
+
+.jd-btn.large {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    border-radius: 12px;
+}
+
+.jd-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ── Old Refine Card (removed — now inline in Step 1) ── */
+
+.jd-refine-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: fadeIn 0.25s ease;
+}
+
+.jd-refine-user {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--slate-700);
+    background: var(--slate-50);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--slate-200);
+}
+
+.jd-refine-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--indigo-600);
+    background: var(--indigo-100);
+    padding: 1px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.jd-refine-ai {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--green-700);
+    padding-left: 4px;
+}
+
+.jd-refine-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.jd-refine-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.jd-refine-input:focus {
+    border-color: var(--indigo-500);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.jd-refine-input::placeholder {
+    color: var(--slate-400);
+}
+
+.jd-refine-preview-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Export Card ── */
+.jd-export-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.jd-export-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.jd-export-header svg {
+    color: var(--green-600);
+    flex-shrink: 0;
+}
+
+.jd-export-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin: 0;
+}
+
+.jd-export-header p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 2px 0 0;
+}
+
+.jd-export-preview {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-default);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    background: var(--slate-50);
+}
+
+.jd-export-preview::-webkit-scrollbar {
+    width: 5px;
+}
+
+.jd-export-preview::-webkit-scrollbar-thumb {
+    background: var(--slate-200);
+    border-radius: 3px;
+}
+
+.jd-manual-edit {
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+.jd-manual-edit:focus-within {
+    border-color: var(--indigo-400);
+    box-shadow: 0 0 0 3px var(--indigo-50);
+}
+
+.jd-manual-edit summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--slate-800);
+    cursor: pointer;
+    background: var(--slate-50);
+    border-bottom: 1px solid var(--border-default);
+    list-style: none;
+    /* Hide default arrow */
+    transition: background 0.2s;
+}
+
+.jd-manual-edit summary::-webkit-details-marker {
+    display: none;
+}
+
+.jd-manual-edit summary:hover {
+    background: var(--slate-100);
+}
+
+.jd-edit-hint {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--slate-400);
+    font-style: italic;
+}
+
+.jd-edit-textarea {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    font-family: inherit;
+    /* Use default sans-serif font instead of monospace for better readability */
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--slate-800);
+    resize: vertical;
+    outline: none;
+    background: #fff;
+}
+
+/* ── Closure Date ── */
+.jd-closure-date {
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.jd-closure-date label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    white-space: nowrap;
+}
+
+.jd-closure-date input[type="date"] {
+    padding: 8px 12px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.jd-closure-date input[type="date"]:focus {
+    border-color: var(--indigo-500);
+}
+
+.jd-export-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.jd-export-actions .jd-btn.large {
+    width: 100%;
+    justify-content: center;
+}
+
+.jd-export-actions .jd-btn.ghost {
+    width: 100%;
+    justify-content: center;
+}
+
+.jd-export-btn-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.jd-export-btn-row .jd-btn {
+    flex: 1;
+}
+
+.jd-btn.accent {
+    background: var(--green-600, #16a34a);
+    color: white;
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
+}
+
+.jd-btn.accent:hover:not(:disabled) {
+    background: var(--green-700, #15803d);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    transform: translateY(-1px);
+}
+
+.jd-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: jdSpin 0.8s linear infinite;
+}
+
+@keyframes jdSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Inline Refine (Step 1) ── */
+.jd-refine-inline {
+    margin-top: 8px;
+}
+
+.jd-refine-history {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.jd-refine-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.jd-refine-user {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-primary);
+}
+
+.jd-refine-badge {
+    background: var(--indigo-100);
+    color: var(--indigo-700);
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.jd-refine-ai {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--green-700);
+    padding-left: 4px;
+}
+
+.jd-refine-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.jd-refine-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.jd-refine-input:focus {
+    border-color: var(--indigo-500);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.jd-refine-input::placeholder {
+    color: var(--slate-400);
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeIn 0.35s ease-out;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .jd-hero {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .jd-export-card {
+        padding: 20px;
+    }
+}

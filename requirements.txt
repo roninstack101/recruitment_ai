@@ -1,0 +1,39 @@
+# Core backend
+fastapi
+uvicorn
+python-multipart
+pydantic>=2.5,<3
+
+# LangChain + LangGraph ecosystem
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langgraph
+
+# HTTP
+requests
+
+# Embeddings & vector search
+sentence-transformers
+faiss-cpu
+
+# File parsing
+pdfplumber
+python-docx
+
+# Environment variables
+python-dotenv
+reportlab
+Markdown
+
+# Database
+psycopg[binary]
+sqlalchemy
+
+# Auth
+passlib[bcrypt]
+python-jose[cryptography]
+
+# Scheduling
+apscheduler
