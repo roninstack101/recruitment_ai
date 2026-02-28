@@ -1,11 +1,9 @@
 # main.py
+import os
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 
 from app.db.database import engine, Base
 from app.db import models  # noqa: F401 – registers models with Base
@@ -34,16 +32,24 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Recruitment AI Backend", lifespan=lifespan)
 
+# ── CORS — allow Vercel frontend + local dev ──
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+allowed_origins = [
+    FRONTEND_URL,
+    "http://localhost:5173",
+    "http://localhost:3000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 
-@app.get("/api/health")
+@app.get("/")
 def health():
     return {"status": "Backend running"}
 
@@ -55,25 +61,3 @@ app.include_router(analytics_router)
 app.include_router(jd_router, prefix="/jd", tags=["JD"])
 app.include_router(cv_router, prefix="/cv", tags=["CV Analysis"])
 app.include_router(keka_router)
-
-
-# ── Serve React Frontend (production) ──────────────────────────
-FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
-
-if FRONTEND_DIR.is_dir():
-    # Serve static assets (JS, CSS, images) under /assets
-    app.mount(
-        "/assets",
-        StaticFiles(directory=FRONTEND_DIR / "assets"),
-        name="frontend-assets",
-    )
-
-    # Catch-all: serve index.html for any non-API route (React Router SPA)
-    @app.get("/{full_path:path}")
-    async def serve_spa(full_path: str):
-        # If a file exists in dist, serve it (e.g. favicon.ico, manifest.json)
-        file_path = FRONTEND_DIR / full_path
-        if full_path and file_path.is_file():
-            return FileResponse(file_path)
-        # Otherwise serve index.html for React Router
-        return FileResponse(FRONTEND_DIR / "index.html")
