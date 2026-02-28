@@ -22,6 +22,7 @@ faiss-cpu
 # File parsing
 pdfplumber
 python-docx
+pypdf
 
 # Environment variables
 python-dotenv
@@ -33,6 +34,7 @@ psycopg[binary]
 sqlalchemy
 
 # Auth
+bcrypt
 passlib[bcrypt]
 python-jose[cryptography]
 
