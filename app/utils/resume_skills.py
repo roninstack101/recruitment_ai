@@ -1,6 +1,6 @@
 import json
 from typing import Dict, List
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 
 SKILL_EXTRACTION_PROMPT = """
@@ -38,7 +38,7 @@ def extract_skills_llm(
     Optionally conditions extraction on job role.
     """
 
-    llm = get_llm()
+
 
     prompt = SKILL_EXTRACTION_PROMPT
     if role_context:
@@ -46,7 +46,7 @@ def extract_skills_llm(
             f"Target Job Role: {role_context}\n\n" + prompt
         )
 
-    response = llm.invoke(
+    response = call_llm(
     prompt.format(resume_text=resume_text)
     )
 

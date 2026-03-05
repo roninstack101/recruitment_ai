@@ -2,7 +2,7 @@
 # Suggests alternative job role names based on the generated profile
 
 import json
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 ROLE_SUGGESTER_PROMPT = """
 You are a senior HR naming specialist.
@@ -31,7 +31,7 @@ def suggest_roles(profile: dict, instruction: str = None) -> list:
     The first entry is always the original role from the profile.
     If instruction is provided, it guides the style/focus of suggestions.
     """
-    llm = get_llm()
+
     original_role = profile.get("role", "Unknown Role")
 
     refinement_text = ""
@@ -43,7 +43,7 @@ def suggest_roles(profile: dict, instruction: str = None) -> list:
     ) + refinement_text
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         if isinstance(content, list):

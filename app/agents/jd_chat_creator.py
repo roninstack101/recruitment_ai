@@ -6,7 +6,7 @@
 import json
 import os
 from datetime import datetime
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 from app.utils.constants import ABOUT_WOGOM_TEXT, WOGOM_BRAND
 from app.agents.jd_generator import normalize_bullets
 
@@ -118,7 +118,7 @@ def create_jd_from_prompt(user_prompt: str, memory_context: str = "", session_id
     Returns:
         dict with keys: jd, role, department, location, experience, employment_type
     """
-    llm = get_llm()
+
 
     # Build memory section
     memory_section = ""
@@ -154,7 +154,7 @@ Apply these preferences when generating the JD. They represent this user's prefe
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         # Handle list responses

@@ -3,7 +3,7 @@
 # Generates multiple ideal candidate personas from the role profile
 
 import json
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 PERSONA_BUILDER_PROMPT = """
 You are a senior hiring strategist.
@@ -67,7 +67,7 @@ def build_personas(profile) -> list:
     Returns:
         list of persona dicts
     """
-    llm = get_llm()
+
 
     # Accept both string and dict inputs
     if isinstance(profile, str):
@@ -78,7 +78,7 @@ def build_personas(profile) -> list:
     prompt = PERSONA_BUILDER_PROMPT.format(profile=profile_text)
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         # Handle list responses from some LLM providers

@@ -6,7 +6,7 @@
 import json
 import os
 from datetime import datetime
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 # ─────────────────────────────────────────────
 # Conversation log directory
@@ -63,7 +63,7 @@ def refine_jd(current_jd: str, instruction: str, role: str = "", session_id: str
     Returns:
         str: The updated JD text.
     """
-    llm = get_llm()
+
 
     prompt = REFINE_PROMPT.format(
         current_jd=current_jd,
@@ -71,7 +71,7 @@ def refine_jd(current_jd: str, instruction: str, role: str = "", session_id: str
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         # Handle list responses

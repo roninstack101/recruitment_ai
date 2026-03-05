@@ -4,7 +4,7 @@
 # persona builder and CV evaluator pipeline.
 
 import json
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 PROFILE_FROM_JD_PROMPT = """
 You are a senior HR strategist.
@@ -79,7 +79,7 @@ def extract_profile_from_jd(jd_text: str, department: str = "") -> dict:
     if not jd_text or not jd_text.strip():
         return _fallback_profile("Unknown Role")
 
-    llm = get_llm()
+
 
     # Enhance JD text with department context
     enhanced_jd = jd_text
@@ -89,7 +89,7 @@ def extract_profile_from_jd(jd_text: str, department: str = "") -> dict:
     prompt = PROFILE_FROM_JD_PROMPT.format(jd_text=enhanced_jd)
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         # Handle list responses from some LLM providers

@@ -2,7 +2,7 @@
 import re
 import json
 from typing import List, Dict
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 # ----------------------------
 # Helper functions (deterministic)
@@ -91,8 +91,7 @@ def jd_parser(state: Dict) -> Dict:
     )
 
     if critical_missing:
-        llm = get_llm()
-        response = llm.invoke(JD_PARSER_PROMPT.format(jd_text=text))
+        response = call_llm(JD_PARSER_PROMPT.format(jd_text=text))
         llm_parsed = json.loads(response)
 
         for key, value in llm_parsed.items():

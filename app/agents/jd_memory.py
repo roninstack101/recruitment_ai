@@ -5,7 +5,7 @@
 
 import json
 from datetime import datetime
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 
 # ─────────────────────────────────────────────
@@ -110,7 +110,7 @@ def analyze_session(
     Returns:
         dict with keys: preferences_summary, patterns
     """
-    llm = get_llm()
+
 
     # Format edit history
     if edit_history:
@@ -140,7 +140,7 @@ Incorporate and update these preferences based on the new session data."""
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         if isinstance(content, list):

@@ -3,7 +3,7 @@
 # Compares each candidate CV against each persona → scores, grades, explanations
 
 import json
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 # ─────────────────────────────────────────────
 # Prompt: Single CV vs Single Persona
@@ -72,7 +72,7 @@ def evaluate_candidate_against_persona(cv: dict, persona: dict) -> dict:
     Returns:
         dict with persona_id, score, grade, strengths, gaps, explanation
     """
-    llm = get_llm()
+
 
     # Build a clean CV representation for the prompt
     cv_for_prompt = {
@@ -93,7 +93,7 @@ def evaluate_candidate_against_persona(cv: dict, persona: dict) -> dict:
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         if isinstance(content, list):

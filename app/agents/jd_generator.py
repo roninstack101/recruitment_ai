@@ -18,20 +18,17 @@ if PROJECT_ROOT not in sys.path:
 # Imports
 # --------------------------------------------------
 try:
-    from app.utils.llm import get_llm
+    from app.utils.llm import call_llm
     from app.utils.constants import ABOUT_WOGOM_TEXT, WOGOM_BRAND
 except ImportError as e:
     print(f"[JD_GENERATOR] Warning: {e}")
     ABOUT_WOGOM_TEXT = "About WOGOM information unavailable."
     WOGOM_BRAND = {}
 
-    def get_llm():
-        class MockLLM:
-            def invoke(self, prompt):
-                class MockResponse:
-                    content = f"Mock JD generated for prompt: {prompt[:160]}..."
-                return MockResponse()
-        return MockLLM()
+    def call_llm(prompt):
+        class MockResponse:
+            content = f"Mock JD generated for prompt: {str(prompt)[:160]}..."
+        return MockResponse()
 
 
 # --------------------------------------------------
@@ -304,8 +301,7 @@ def generate_jd(form_data: Dict, profile: Dict = None) -> str:
     )
 
     # LLM call
-    llm = get_llm()
-    response = llm.invoke(prompt)
+    response = call_llm(prompt)
     content = response.content
 
     if isinstance(content, list):

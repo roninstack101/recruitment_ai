@@ -3,7 +3,7 @@
 # Generates MCQs from the "Head of Department" perspective
 # No draft JD required — works solely from role + department data
 
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 import json
 import re
 
@@ -166,7 +166,7 @@ def generate_clarifying_questions(form_data: dict) -> list:
     Returns:
         List of 5 MCQ questions with 4 options each.
     """
-    llm = get_llm()
+
 
     # Extract fields from form data
     title = form_data.get("role", "Unknown Role")
@@ -202,7 +202,7 @@ def generate_clarifying_questions(form_data: dict) -> list:
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         raw_text = str(response.content)
     except Exception as e:
         print(f"[JD_CLARIFIER] Error calling LLM: {e}")

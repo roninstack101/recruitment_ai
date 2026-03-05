@@ -3,7 +3,7 @@
 # Synthesizes Google Form data + Clarifying Answers → Ideal Candidate Profile
 
 import json
-from app.utils.llm import get_llm
+from app.utils.llm import call_llm
 
 PROFILE_BUILDER_PROMPT = """
 You are a senior HR strategist building an "Ideal Candidate Profile" for the role of **{role}** in the **{department}** department.
@@ -79,7 +79,7 @@ def build_profile(form_data: dict, clarification_answers: list) -> dict:
     Returns:
         dict: The structured ideal candidate profile.
     """
-    llm = get_llm()
+
 
     role = form_data.get("role", "Unknown Role")
     department = form_data.get("department", "General")
@@ -106,7 +106,7 @@ def build_profile(form_data: dict, clarification_answers: list) -> dict:
     )
 
     try:
-        response = llm.invoke(prompt)
+        response = call_llm(prompt)
         content = response.content
 
         # Handle list responses from some LLM providers
